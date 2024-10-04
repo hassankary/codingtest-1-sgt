@@ -1,9 +1,29 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Technical Coding Test 1
+This is a [Next.js](https://nextjs.org/) project created for the Frontend Developer coding test at PT SGT, built using [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+## System Requirements
+- Node.js version 18.18 or later.
+- Supported operating systems: macOS, Windows (including WSL), and Linux.
 
-First, run the development server:
+## Installation 
+Clone the Repository:
+```bash
+git clone https://github.com/hassankary/codingtest-2-sgt.git
+cd codingtest-2-sgt
+```
+Install Dependencies:
 
+With npm:
+```bash
+npm install
+```
+With yarn:
+```bash
+yarn install
+```
+
+## Running the Project
+After installing all dependencies, you can run the project with the following command:
 ```bash
 npm run dev
 # or
@@ -14,23 +34,8 @@ pnpm dev
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+On the first page, you'll see the login form. You can enter any username and password, then click 'Login'. After logging in, you will see a table listing universities from around the world. You can filter the list by name and country."
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Don’t hesitate to get in touch if you run into any issues—I'm here to help! 😊
