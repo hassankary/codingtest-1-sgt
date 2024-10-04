@@ -8,8 +8,8 @@ This is a [Next.js](https://nextjs.org/) project created for the Frontend Develo
 ## Installation 
 Clone the Repository:
 ```bash
-git clone https://github.com/hassankary/codingtest-2-sgt.git
-cd codingtest-2-sgt
+git clone https://github.com/hassankary/codingtest-1-sgt.git
+cd codingtest-1-sgt
 ```
 Install Dependencies:
 
