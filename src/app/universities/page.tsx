@@ -41,13 +41,13 @@ const columns = [
 ];
 
 const dataLoading = {
-    alpha_two_code: "",
-    country: "Loading...",
-    domains: [""],
-    name: "Loading...",
-    "state-province": "",
-    web_pages: ["Loading..."],
-  };
+  alpha_two_code: "",
+  country: "Loading...",
+  domains: [""],
+  name: "Loading...",
+  "state-province": "",
+  web_pages: ["Loading..."],
+};
 
 export default function Universities() {
   const [data, setData] = useState<University[]>([]);
@@ -83,6 +83,7 @@ export default function Universities() {
 
   useEffect(() => {
     getData();
+    setCurrentPage(1);
   }, [country, name]);
 
   useEffect(() => {
@@ -113,54 +114,53 @@ export default function Universities() {
 
   return (
     <div className="bg-gradient-to-b from-foreground to-[#1677FF] ">
-
-    <div className="min-h-screen container xl:max-w-7xl lg:px-[10%] mx-auto">
-      <div className="flex justify-center py-10 font-bold font-sans text-2xl sm:text-3xl text-center text-black">
-        <h1 className=" w-fit pb-2 border-b-2 border-b-[#1677FF]">
-          Universities {country === "" ? "Around the World" : "in"}{" "}
-          <span className=" capitalize">{country}</span>
-        </h1>
-      </div>
-      <div className="p-4 mb-4">
-        <div className="w-full sm:max-w-[350px] space-y-4">
-          <Search
-            placeholder="Name..."
-            onSearch={onSearchName}
-            enterButton
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            className="shadow-md"
+      <div className="min-h-screen container xl:max-w-7xl lg:px-[10%] mx-auto">
+        <div className="flex justify-center py-10 font-bold font-sans text-2xl sm:text-3xl text-center text-black">
+          <h1 className=" w-fit pb-2 border-b-2 border-b-[#1677FF]">
+            Universities {country === "" ? "Around the World" : "in"}{" "}
+            <span className=" capitalize">{country}</span>
+          </h1>
+        </div>
+        <div className="p-4 mb-4">
+          <div className="w-full sm:max-w-[350px] space-y-4">
+            <Search
+              placeholder="Name..."
+              onSearch={onSearchName}
+              enterButton
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              className="shadow-md"
+            />
+            <Search
+              placeholder="Country..."
+              onSearch={onSearchCountry}
+              enterButton
+              value={country}
+              onChange={(e) => setCountry(e.target.value)}
+              className="shadow-md"
+            />
+            <Button
+              onClick={resetFilter}
+              type={"primary"}
+              className="capitalize shadow-md"
+            >
+              Reset Filter
+            </Button>
+          </div>
+        </div>
+        <div className="mx-4 pb-10 overflow-x-auto">
+          <Table
+            dataSource={loading ? [dataLoading] : data.length > 0 ? data : []}
+            columns={columns}
+            rowKey={"web_pages"}
+            pagination={{
+              current: currentPage,
+              onChange: handlePageChange,
+            }}
+            className={loading ? "animate-pulse" : ""}
           />
-          <Search
-            placeholder="Country..."
-            onSearch={onSearchCountry}
-            enterButton
-            value={country}
-            onChange={(e) => setCountry(e.target.value)}
-            className="shadow-md"
-          />
-          <Button
-            onClick={resetFilter}
-            type={"primary"}
-            className="capitalize shadow-md"
-          >
-            Reset Filter
-          </Button>
         </div>
       </div>
-      <div className="mx-4 pb-10 overflow-x-auto">
-        <Table
-          dataSource={loading ? [dataLoading] : data.length > 0 ? data : []}
-          columns={columns}
-          rowKey={"web_pages"}
-          pagination={{
-            current: currentPage,
-            onChange: handlePageChange,
-          }}
-          className={loading ? "animate-pulse" : ""}
-        />
-      </div>
-    </div>
     </div>
   );
 }
